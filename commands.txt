@@ -1,0 +1,27 @@
+1. Create a src and public folder
+
+2. Add package.json
+  npm init -y
+
+3. Add webpack and webpack dev server
+  npm install webpack webpack-dev-server  webpack-cli
+- add devServer to webpack.config.js to let it know where is the public folder
+- and devServer on package.json on scripts 
+
+4. Make a file in the root
+  webpack.config.js
+
+5. Install Validator, React
+  npm install validator
+  npm install react react-dom
+
+6. Install Babel 
+  npm install babel-cli babel-core babel-loader
+- babel-loader = webpack plugin that teach webpack how to run babel
+- add them to webpack.config
+- create a file .babelrc
+
+7. Install Class properties transform (transform-class-properties) from
+https://babeljs.io/docs/plugins/preset-stage-2/
+  npm install --save-dev babel-plugin-transform-class-properties
+- add it to plugins to .babelrc
