@@ -14,6 +14,14 @@ const textWebpackPlugin = new ExtractTextPlugin({
 });
 
 module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "index_bundle.js"
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -25,42 +33,43 @@ module.exports = {
       },
       {
         test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [{
-                loader: 'css-loader',
-                options: {
-                  modules: true,
-                  localIdentName: '[name]__[local]___[hash:base64:5]'
-                }
-              },
-              'postcss-loader'
-            ]
-          })
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                localIdentName: "[name]__[local]___[hash:base64:5]"
+              }
+            },
+            "postcss-loader"
+          ]
+        })
       },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+          fallback: "style-loader",
           use: [
             {
-              loader: 'css-loader',
+              loader: "css-loader",
               options: {
                 modules: true,
                 sourceMap: true,
                 importLoaders: 2,
-                localIdentName: '[name]__[local]___[hash:base64:5]'
+                localIdentName: "[name]__[local]___[hash:base64:5]"
               }
             },
-            'sass-loader'
+            "sass-loader"
           ]
         })
       }
     ]
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: "cheap-module-eval-source-map",
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    // contentBase: path.join(__dirname, "public"),
     historyApiFallback: true
   },
   plugins: [htmlPlugin, textWebpackPlugin]

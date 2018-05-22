@@ -1,27 +1,81 @@
-1. Create a src and public folder
+1. npm init -y
+2. npm i webpack webpack-cli webpack-dev-server -D
+3. package.json
+-- hot = allow you to only reload the component that is changed 
+"scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+4. To create dist folder
+npm run start
+5. npm i react react-dom -S
+6. npm i babel-core babel-loader babel-preset-env babel-preset-react -D
+7. Create webpack.config.js
+8. Create .babelrc
+9. Create index.js and index.html
+10. Install html-webpack-plugin
+npm i html-webpack-plugin -D
+-  This plugin generates an HTML file with <script> injected, writes this to dist/index.html, and minifies the file.
+- The filename value is the name of the minified HTML that will be generated in the dist folder.
 
-2. Add package.json
-  npm init -y
+11. npm i css-loader style-loader -D
+  npm install sass-loader node-sass -D
+  npm install extract-text-webpack-plugin@next
+  npm i -D postcss-loader
 
-3. Add webpack and webpack dev server
-  npm install webpack webpack-dev-server  webpack-cli
-- add devServer to webpack.config.js to let it know where is the public folder
-- and devServer on package.json on scripts 
+12. Install normalize css to CSS resets
+npm install normalize.css
 
-4. Make a file in the root
-  webpack.config.js
+- add it to app.js or index.js
+import 'normalize.css/normalize.css';
 
-5. Install Validator, React
-  npm install validator
-  npm install react react-dom
 
-6. Install Babel 
-  npm install babel-cli babel-core babel-loader
-- babel-loader = webpack plugin that teach webpack how to run babel
-- add them to webpack.config
-- create a file .babelrc
 
-7. Install Class properties transform (transform-class-properties) from
-https://babeljs.io/docs/plugins/preset-stage-2/
-  npm install --save-dev babel-plugin-transform-class-properties
-- add it to plugins to .babelrc
+13. Add webpack devtool for cheching  errors
+devtool: 'cheap-module-eval-source-map',
+
+12a. Install Class properties transform to add properties(methods) to classes wihout constructor
+https://babeljs.io/docs/plugins/transform-class-properties/
+
+npm install -D babel-plugin-transform-class-properties
+
+- add this to .babelrc to plugins
+    "transform-class-properties",
+
+
+13. Install unic id generator
+npm install uuid
+
+
+#################### ROUTING ####################
+
+14. Install React Router Dom 
+npm i react-router-dom 
+
+
+
+
+#################### REDUX ####################
+
+15. npm i redux react-redux
+
+
+16. Install Object rest spread transform
+npm install --save-dev babel-plugin-transform-object-rest-spread
+ 
+ - then add it to .babelrc file
+
+{
+  "plugins": ["transform-object-rest-spread"]
+}
+
+17. Install momentjs and airbnb
+http://momentjs.com/
+
+https://github.com/airbnb/react-dates
+
+npm i moment react-dates react-addons-shallow-compare
+
+- react dates require a dependecy: react-addons-shallow-compare
+
+
