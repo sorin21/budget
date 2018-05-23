@@ -78,4 +78,9 @@ npm i moment react-dates react-addons-shallow-compare
 
 - react dates require a dependecy: react-addons-shallow-compare
 
+18. Install cross origin resource share
+npm install --save cors
+npm install --save express 
+npm install --save-dev webpack-node-externals 
+
 
