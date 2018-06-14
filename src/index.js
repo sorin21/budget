@@ -18,7 +18,7 @@ const store = configureStore();
 store.dispatch(addExpense({ description: 'Rent', amount: 1000 }))
 store.dispatch(addExpense({ description: 'Water Bill', amount: 300, createdAt: 1000 }))
 store.dispatch(addExpense({ description: 'Gas Bill', amount: 500 }))
-// store.dispatch(setTextFilter('bill'));
+store.dispatch(setTextFilter('bill'));
 
 
 // const state = store.getState();
@@ -27,8 +27,8 @@ store.dispatch(addExpense({ description: 'Gas Bill', amount: 500 }))
 
 // console.log("din app.js visibleExpenses", visibleExpenses);
 
-// Provider let us devide the store that we want
-// to provide to all our components
+// Provider make the store available 
+// to all components in the application
 const storeProvider = (
   <Provider store={store}>
     <AppRouter />
