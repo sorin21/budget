@@ -55,12 +55,29 @@ class ExpenseForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    
+    // if no desc and amount
+    if (!this.state.description || !this.state.amount) {
+      this.setState(() => ({
+        error: 'Please provide description and amount'
+      }));
+    } else {
+      this.setState(() =>({error: ''}))
+      this.props.onSubmit({
+        description: this.state.description,
+        // we work in base 10 and *100 to transfor from cents
+        amount: parseFloat(this.state.amount, 10),
+        // to trasf in miliseconds use the valueOf()
+        // method from  moment website
+        createdAt: this.state.createdAt.valueOf(),
+        note: this.state.note
+      })
+    }
   }
 
   render() {
     return (
       <div>
+        {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
