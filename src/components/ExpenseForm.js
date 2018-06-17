@@ -6,11 +6,14 @@ import "react-dates/initialize";
 
 class ExpenseForm extends Component {
   state = {
-    description: "",
-    note: "",
-    amount: "",
-    createdAt: moment(),
-    calendarFocused: false
+    description: this.props.expense ? this.props.expense.description : '',
+    note: this.props.expense ? this.props.expense.note : '',
+    // convert it to string
+    amount: this.props.expense ? (this.props.expense.amount).toString() : '',
+    // createdAt now, this moment
+    createdAt: this.props.expense ? moment(this.props.expense.createdAt) : moment(),
+    calendarFocused: false,
+    error: ''
   };
 
   onDescriptionChange = event => {
@@ -55,6 +58,7 @@ class ExpenseForm extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    console.log('props', this.props);
     // if no desc and amount
     if (!this.state.description || !this.state.amount) {
       this.setState(() => ({
@@ -99,7 +103,7 @@ class ExpenseForm extends Component {
             onFocusChange={this.onFocusChange}
             numberOfMonths={1}
             // make every single day available
-            // isOutsideRange={() => false}
+            isOutsideRange={() => false}
           />
           <textarea
             placeholder="Add a note for your expense(optional)"
