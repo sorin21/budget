@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { Provider } from 'react-redux';
-import App from "./App";
 import configureStore from "./store/configureStore";
 import getVisibleExpenses from "./selectors/expenses";
 import { setTextFilter } from './actions/filters';
 import { addExpense } from './actions/expenses';
 import 'normalize.css/normalize.css';
-import classes from './index.scss';
+import  './App.scss';
 import AppRouter from "./routers/AppRouter";
 
 // configureStore() give us access to

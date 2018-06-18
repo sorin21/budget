@@ -1,0 +1,47 @@
+$off-black: #20222b;
+$off-white: #a5afd7;
+$blue: #3c4251;
+$dark-blue: #333745;
+$light-blue: #464b5e;
+$purple: #8357c5;
+$gray: #eeeeee;
+// Spacing
+$s-size: 1.2rem;
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+
+html {
+  // 16 * 62.5 = 10 
+  // so 
+  // font-size: 2.2rem is 22px
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: $m-size;
+  background-color: $gray;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.is-active {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+// .container {
+//   background-color: green;
+//   color: red;
+// }
