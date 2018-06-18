@@ -112,7 +112,7 @@ clip < ~/.ssh/id_rsa.pub
 6) Then go to GitHub user settings to SHH and click on new SHH key
 
 7) Connect to GitHub 
-- in terminal run 
+- in terminal run the command
 ssh -T git@github.com 
 - type yes to accept to connect to GitHub
 
