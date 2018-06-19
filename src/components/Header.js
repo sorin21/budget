@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
+import classes from './Header.scss';
 
 const Header = () => (
   <header>
-    <h1>React Budget</h1>
+    <h1 className={classes.title}>React Budget</h1>
     <NavLink to="/" activeClassName="is-active" exact>
       Go Home
     </NavLink>

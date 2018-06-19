@@ -28,8 +28,7 @@ store.dispatch(addExpense({ description: 'Gas Bill', amount: 500 }))
 
 // Provider make the store available 
 // to all components in the application
-const storeProvider = (
-  <Provider store={store}>
+const storeProvider = (<Provider store={store}>
     <AppRouter />
   </Provider>
 );
