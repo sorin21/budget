@@ -128,7 +128,7 @@ https://devcenter.heroku.com/articles/heroku-cli
 2. Check installation
 heroku --version
 
-3. Login
+3. Login first
 heroku login 
 
 4. Create an app 
