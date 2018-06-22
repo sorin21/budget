@@ -1,5 +1,7 @@
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   optimization: {
@@ -7,13 +9,36 @@ module.exports = {
       new UglifyJsPlugin({
         uglifyOptions: {
           mangle: {
-            keep_fnames: true,
+            keep_fnames: true
           },
-        },
+          compress: {
+            warnings: false, // Suppress uglification warnings
+            pure_getters: true,
+            unsafe: true,
+            unsafe_comps: true
+          },
+          output: {
+            comments: false
+          },
+          toplevel: false,
+          nameCache: null,
+          ie8: false,
+          keep_classnames: undefined,
+          keep_fnames: false,
+          exclude: [/\.min\.js$/gi] // skip pre-minified libs
+        }
       })
-    ],
+    ]
   },
   plugins: [
     new OptimizeCssAssetsPlugin(),
-  ],
-}
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/])
+  ]
+};

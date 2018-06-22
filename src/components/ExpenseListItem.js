@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 // import { removeExpense } from '../actions/expenses';
-
+import moment from "moment";
+import numeral from "numeral";
 // destruct the props
 // const ExpenseListItem = ({ id, dispatch,  description, amount, createdAt, note }) => {
 const ExpenseListItem = (props) => {
@@ -11,8 +12,8 @@ const ExpenseListItem = (props) => {
       <Link to={`/edit/${props.expense.id}`}>
         <h3>{props.expense.description}</h3>
       </Link>
-      <p>Amount: {props.expense.amount} </p>
-      <p>Created At: {props.expense.createdAt}</p>
+      <p>Amount: {numeral(props.expense.amount).format('0,0.00')+' lei'} </p>
+      <p>Created At: {moment(props.expense.createdAt).format('MMMM Do, YYYY HH:mm')}</p>
       <p>Note: {props.expense.note}</p>
       {/* <button onClick={() => {
         props.dispatch(removeExpense({ id: props.expense.id }));

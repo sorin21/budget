@@ -46,6 +46,10 @@ npm install -D babel-plugin-transform-class-properties
 13. Install unic id generator
 npm install uuid
 
+14. Format amount
+http://numeraljs.com/
+
+
 
 #################### ROUTING ####################
 
