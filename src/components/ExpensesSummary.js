@@ -4,12 +4,13 @@ import numeral from 'numeral';
 import selectExpenses from '../selectors/expenses';
 import selectExpenseTotal from '../selectors/expenses-total';
 
+
 const ExpensesSummary = ({expenseCount, expensesTotal}) => {
   const expenseWord = expenseCount === 1 ? 'expense':'expenses';
   const formattedExpenseTotal = numeral(expensesTotal).format('0,0.00');
   return (
     <div>
-      <h1>View {expenseCount} {expenseWord} with total {formattedExpenseTotal}{`lei`}.</h1>
+      <h1>View {expenseCount} {expenseWord} with total {formattedExpenseTotal}.</h1>
     </div>
   );
 };
