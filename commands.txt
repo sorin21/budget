@@ -131,6 +131,7 @@ heroku --version
 3. Login first
 heroku login 
 heroku git:remote -a react-redux-budget
+git pull heroku master
 
 4. Create an app 
 heroku create react-redux-budget
