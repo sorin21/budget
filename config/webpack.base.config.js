@@ -70,6 +70,10 @@ module.exports = {
     new ExtractTextPlugin("style.css")
   ],
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    compress: isProduction ? true : false
+  },
+  performance: {
+    hints: false
   }
 };
