@@ -8,6 +8,7 @@ import { addExpense } from './actions/expenses';
 import 'normalize.css/normalize.css';
 import  './App.scss';
 import AppRouter from "./routers/AppRouter";
+import './firebase/firebase';
 
 // configureStore() give us access to
 // store.getState, store.dispatch 

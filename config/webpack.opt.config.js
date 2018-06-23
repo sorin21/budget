@@ -39,6 +39,11 @@ module.exports = {
       threshold: 10240,
       minRatio: 0
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/])
-  ]
+    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
+  ],
+  performance: {
+    hints: false,
+    // 400 KiB
+    maxEntrypointSize: 400000
+  }
 };
