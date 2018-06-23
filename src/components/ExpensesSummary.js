@@ -9,7 +9,7 @@ const ExpensesSummary = ({expenseCount, expensesTotal}) => {
   const formattedExpenseTotal = numeral(expensesTotal).format('0,0.00');
   return (
     <div>
-      <h1>View {expenseCount} {expenseWord} with total {formattedExpenseTotal} lei. </h1>
+      <h1>View {expenseCount} {expenseWord} with total {formattedExpenseTotal}{`lei`}.</h1>
     </div>
   );
 };
