@@ -148,5 +148,5 @@ heroku open
 
 ################## FIREBASE ##################
 
-1. Intall Firebase 
+1. Intall Firebase da
 npm install firebase
