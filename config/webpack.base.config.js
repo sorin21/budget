@@ -75,7 +75,4 @@ module.exports = {
     historyApiFallback: true,
     compress: isProduction ? true : false
   },
-  performance: {
-    hints: false
-  }
 };

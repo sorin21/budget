@@ -28,7 +28,10 @@ module.exports = {
           exclude: [/\.min\.js$/gi] // skip pre-minified libs
         }
       })
-    ]
+    ],
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   plugins: [
     new OptimizeCssAssetsPlugin(),
