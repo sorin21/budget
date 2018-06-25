@@ -11,7 +11,20 @@ const config = {
 };
 firebase.initializeApp(config);
 const database = firebase.database();
-// get a referita to database
+
+const notes = [
+  {
+    id: '12',
+    title: "First note",
+    body: "This is a demo note."
+  },
+  {
+    id: '142fd',
+    title: "Another note",
+    body: "Ala bala portocala note me."
+  }
+];
+// Adding Data
 // database.ref().set({
 //   name: 'Dan',
 //   age: 27,
@@ -27,10 +40,49 @@ const database = firebase.database();
 // database.ref('age').set(28);
 // database.ref('name').set('Sorin');
 // database.ref('location/city').set('Bucuresti');
-database.ref('isSingle').remove()
-  .then(() => {
-    console.log('Remove succeeded');
-  })
-  .catch((error) => {
-    console.log('Remove failed: ', error.message);
-  })
+
+
+// Update Data
+// database.ref().update({
+//   name: 'Mike',
+//   age: 38,
+//   job: 'Developer',
+//   isSingle: null, // delete it
+//   'location/city': 'Boston'
+// })
+
+// // Remove Data
+// database.ref('isSingle').remove()
+//   .then(() => {
+//     console.log('Remove succeeded');
+//   })
+//   .catch((error) => {
+//     console.log('Remove failed: ', error.message);
+//   })
+
+// Fetching Data - get only once data
+// database.ref().once('value')
+//   .then((response) => {
+//     console.log('response', response.val());
+//   })
+//   .catch((error) => {
+//     console.log('Error fetching data: ', error.message);
+//   })
+
+// Fetching Data - update the data automatically
+// const onValueChange = database.ref().on('value', (response) => {
+//   console.log("response", response.val());
+// }, (error) => {
+//   console.log('Error with data fetching', error.message);
+// })
+
+// setTimeout(() => {
+//   database.ref('age').set(22);
+// }, 3500);
+// setTimeout(() => {
+//   // unsubscribe the change
+//   database.ref().off(onValueChange);
+// }, 3500);
+// setTimeout(() => {
+//   database.ref('age').set(10);
+// }, 3500);
