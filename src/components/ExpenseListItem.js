@@ -12,7 +12,7 @@ const ExpenseListItem = (props) => {
       <Link to={`/edit/${props.expense.id}`}>
         <h3>{props.expense.description}</h3>
       </Link>
-      <p>Amount: {numeral(props.expense.amount).format('0,0.00')+' lei'} </p>
+      <p>Amount: {numeral(props.expense.amount).format('0,0.00')}</p>
       <p>Created At: {moment(props.expense.createdAt).format('MMMM Do, YYYY HH:mm')}</p>
       <p>Note: {props.expense.note}</p>
       {/* <button onClick={() => {

@@ -28,7 +28,10 @@ module.exports = {
           exclude: [/\.min\.js$/gi] // skip pre-minified libs
         }
       })
-    ]
+    ],
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   plugins: [
     new OptimizeCssAssetsPlugin(),
@@ -39,6 +42,11 @@ module.exports = {
       threshold: 10240,
       minRatio: 0
     }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/])
-  ]
+    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
+  ],
+  performance: {
+    hints: false,
+    // 400 KiB
+    maxEntrypointSize: 400000
+  }
 };

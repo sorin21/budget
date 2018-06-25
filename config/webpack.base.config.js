@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const isProduction = (env) => {
   return env === "production"
 };
@@ -67,13 +68,11 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html"
     }),
-    new ExtractTextPlugin("style.css")
+    new ExtractTextPlugin("style.css"),
+    new BundleAnalyzerPlugin()
   ],
   devServer: {
     historyApiFallback: true,
     compress: isProduction ? true : false
   },
-  performance: {
-    hints: false
-  }
 };
