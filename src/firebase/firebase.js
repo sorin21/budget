@@ -12,18 +12,39 @@ const config = {
 firebase.initializeApp(config);
 const database = firebase.database();
 
-const notes = [
-  {
-    id: '12',
-    title: "First note",
-    body: "This is a demo note."
-  },
-  {
-    id: '142fd',
-    title: "Another note",
-    body: "Ala bala portocala note me."
-  }
-];
+database.ref("notes/-LFuY8CkFTuGtS80t89X").remove();
+
+// database.ref('notes').push({
+//   title: 'Course Topic',
+//   body: 'React is the best library'
+// }); 
+
+// const firebaseNotes = {
+//   notes: {
+//     dsada: {
+//       title: "First note",
+//       body: "This is a demo note."
+//     },
+//     dsadfd: {
+//       title: "Another note",
+//       body: "Ala bala portocala note me."
+//     }
+//   }
+// }
+
+// const notes = [
+//   {
+//     id: '12',
+//     title: "First note",
+//     body: "This is a demo note."
+//   },
+//   {
+//     id: '142fd',
+//     title: "Another note",
+//     body: "Ala bala portocala note me."
+//   }
+// ];
+// database.ref("firebaseNotes").set(firebaseNotes);
 // Adding Data
 // database.ref().set({
 //   name: 'Dan',
@@ -61,20 +82,40 @@ const notes = [
 //   })
 
 // Fetching Data - get only once data
-// database.ref().once('value')
+// database.ref('notes').once('value')
 //   .then((response) => {
-//     console.log('response', response.val());
+//     const notes = [];
+//     response.forEach((note) => {
+//       // key comes from firebase
+//       notes.push({
+//         id: note.key,
+//         ...note.val()
+//       });
+//     })
+//     console.log(notes);
 //   })
 //   .catch((error) => {
 //     console.log('Error fetching data: ', error.message);
 //   })
 
 // Fetching Data - update the data automatically
-// const onValueChange = database.ref().on('value', (response) => {
-//   console.log("response", response.val());
-// }, (error) => {
-//   console.log('Error with data fetching', error.message);
-// })
+const onValueChange = database.ref('notes').on('value', (response) => {
+  const notes = [];
+  response.forEach((note) => {
+    // key comes from firebase
+    notes.push({
+      id: note.key,
+      ...note.val()
+    });
+  })
+  console.log(notes);
+}, (error) => {
+  console.log('Error with data fetching', error.message);
+})
+
+database.ref('notes').on('child_added', (response) => {
+  console.log('child_added', response.key, response.val());
+})
 
 // setTimeout(() => {
 //   database.ref('age').set(22);
